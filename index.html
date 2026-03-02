@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Sword Practice Line Drill</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="app-header">
+      <h1>Sword Practice Line Drill</h1>
+      <p class="subtitle">Hands-free randomized drill calling with voice commands.</p>
+    </header>
+
+    <main>
+      <section id="main-screen" class="screen active" aria-label="Main screen">
+        <div class="controls-grid">
+          <button class="action-btn primary" id="run-basic">Run Basic</button>
+          <button class="action-btn primary" id="run-intermediate">Run Intermediate</button>
+          <button class="action-btn primary" id="run-advanced">Run Advanced</button>
+        </div>
+
+        <div class="settings">
+          <h2>Settings</h2>
+          <label for="voice-style">Voice</label>
+          <select id="voice-style" aria-label="Voice style">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+
+          <button id="theme-toggle" class="action-btn">Toggle Dark Mode</button>
+        </div>
+
+        <div class="voice-commands" aria-live="polite">
+          <h2>Voice Commands (exact phrases)</h2>
+          <ul>
+            <li><code>New Basic Movement</code></li>
+            <li><code>New Intermediate Movement</code></li>
+            <li><code>New Advanced Movement</code></li>
+            <li><code>Next</code></li>
+            <li><code>Repeat</code></li>
+            <li><code>Stop</code></li>
+          </ul>
+          <p id="mic-status" class="status">Microphone: starting…</p>
+        </div>
+      </section>
+
+      <section id="drill-screen" class="screen" aria-label="Drill screen">
+        <div class="drill-top">
+          <p id="difficulty-label" class="difficulty">Difficulty: Basic</p>
+          <p class="hint">Each line is one grouped action (legs + arms).</p>
+        </div>
+
+        <article id="movement-display" class="movement-display" aria-live="assertive"></article>
+
+        <div class="controls-grid">
+          <button class="action-btn" id="repeat-btn">Repeat</button>
+          <button class="action-btn" id="next-btn">Next</button>
+          <button class="action-btn danger" id="quit-btn">Quit</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="orientation-lock" class="orientation-lock" hidden>
+    <p>Please rotate your device to portrait mode.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

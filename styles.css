@@ -1,0 +1,170 @@
+:root {
+  --bg: #f4f6f8;
+  --panel: #ffffff;
+  --text: #111111;
+  --accent: #1c5eff;
+  --danger: #c02020;
+  --muted: #444444;
+}
+
+body.dark {
+  --bg: #0b0f15;
+  --panel: #141b24;
+  --text: #f4f7ff;
+  --accent: #7fa2ff;
+  --danger: #ff6f6f;
+  --muted: #c8d4ef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+.controls-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.action-btn {
+  border: 2px solid var(--accent);
+  background: var(--panel);
+  color: var(--text);
+  padding: 0.9rem 0.7rem;
+  font-size: 1.15rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.action-btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.action-btn.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.settings,
+.voice-commands,
+.movement-display,
+.drill-top {
+  margin-top: 1rem;
+  background: var(--panel);
+  border: 2px solid var(--text);
+  border-radius: 0.6rem;
+  padding: 1rem;
+}
+
+.settings h2,
+.voice-commands h2 {
+  margin-top: 0;
+}
+
+select {
+  display: block;
+  margin: 0.4rem 0 1rem;
+  padding: 0.6rem;
+  font-size: 1rem;
+}
+
+.voice-commands ul {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+}
+
+code {
+  background: rgba(128, 128, 128, 0.2);
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.2rem;
+}
+
+.status {
+  font-weight: 700;
+}
+
+.difficulty {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.hint {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.movement-display {
+  font-size: clamp(1.4rem, 4.8vw, 2.3rem);
+  line-height: 1.5;
+  font-weight: 800;
+  min-height: 240px;
+}
+
+.move-line {
+  margin: 0.7rem 0;
+}
+
+.orientation-lock {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  z-index: 999;
+}
+
+@media (max-width: 700px) {
+  .controls-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-btn {
+    font-size: 1.25rem;
+  }
+}
+
+@media (orientation: landscape) {
+  .orientation-lock {
+    display: grid !important;
+  }
+}
